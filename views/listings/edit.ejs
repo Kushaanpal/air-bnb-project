@@ -24,12 +24,17 @@
         
        <div>
         <label for="image" class="form-label">image</label>
-        <input name="listing[image]" value="<%=listing.image.url%>" 
+        <input name="listing[image]"
         type="text" 
         class="form-control"
+        value="<%= listing.image ? listing.image.url : '' %>"
         required/>
        </div>
-
+       <% if (listing.image && listing.image.url) { %>
+        <div class="mt-3">
+            <img src="<%= listing.image.url %>" alt="Listing Image" class="img-thumbnail" width="200">
+        </div>
+    <% } %>
 
        <div class="row">
         <div class=" mb-3 col-md-4">
@@ -88,4 +93,6 @@
       }, false)
     })
   })();
+
+  
     </script>
