@@ -8,7 +8,7 @@ const {isLoggedIn, isOwner,validateListing}=require("../middleware.js");
 const mongoose = require("mongoose");
 const listingcontroller=require("../controller/listing.js");
 const multer  = require('multer');
-const {storage}=require("./cloudconfig.js");
+const {storage}=require("../cloudconfig.js");
 const upload = multer({ storage});
 
 
