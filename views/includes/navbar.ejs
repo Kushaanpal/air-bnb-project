@@ -1,64 +1,23 @@
-<style>
-.btn-search{
-  background-color: #fe424d;
-  color:#fff;
-  border-radius: 40px;
-  padding: 0 2rem 0 2rem;
-}
-.btn-search:hover{
-  background-color: #fe424d;
-  color:#fff;
-}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Wanderlust</a>
 
-.btn-search i{
-  display: inline;
-  margin-right: 1 rem;
-}
-.search-inp{
-  border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
-}
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings">
-        <i class="fa-regular fa-compass"></i></a>
-      <button 
-      class="navbar-toggler" 
-      type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navbarNavAltMarkup" >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input 
-            class="form-control me-2 search-inp" 
-            type="search" 
-            placeholder="Search destinations" 
-            />
-            <button class="btn btn-search" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              Search</button>
-          </form>
-      
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
-          <% if (typeof currUser !== "undefined" && currUser) { %>
-            <a class="nav-link" href="/logout"><b>Log out</b></a>
-          <% } else { %>
-            <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-            <a class="nav-link" href="/login"><b>Log in</b></a>
-          <% } %>
-          
-        </div>
-      </div>
-    </div>
-  </nav>
+    <ul class="navbar-nav ms-auto">
+      <% if (!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <span class="nav-link disabled">Hi, <%= currUser.username %>!</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
