@@ -38,10 +38,7 @@ router.route("/:id").get(
             
             wrapAsync (listingcontroller.destroy));
         
-    
 
-
-//Edit route
 // Edit route (SHOW EDIT FORM)
 router.get("/:id/edit", 
     isLoggedIn,
